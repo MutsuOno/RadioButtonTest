@@ -38,6 +38,20 @@ class RadioButton: UIButton {
         }
     }
     
+    func isGroupSelected() -> Bool {
+        
+        var isGroupSelected: Bool = false
+        
+        for aButton:RadioButton in alternateButton! {
+            if aButton.isSelected {
+                // 一つでも選択状態ならtrue
+                isGroupSelected = true
+            }
+        }
+        
+        return isGroupSelected
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         unselectAlternateButtons()
         super.touchesBegan(touches, with: event)

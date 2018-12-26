@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         button3.alternateButton = [button1, button2]
         
         NotificationCenter.default.addObserver(self, selector: #selector(buttonSelected), name: Notification.Name("buttonSelectedNotification"), object: nil);
+        
+        print(button1.isGroupSelected())
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +33,7 @@ class ViewController: UIViewController {
     
     
     @objc func buttonSelected(notification: NSNotification) {
-        
+        print(button1.isGroupSelected())
         guard let userInfo = notification.userInfo,
             let tag  = userInfo["tag"] as? Int else {
                 return
